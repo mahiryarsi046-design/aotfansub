@@ -5,6 +5,25 @@ import { getSavedContent, saveContent, deleteContent, getCustomCategories, addCu
 import JSZip from 'jszip';
 import { Lock, Trash2, PlusCircle, List, FolderPlus, X, Image as ImageIcon, Clock } from 'lucide-react';
 
+import { uploadToCloudinary } from '@/lib/cloudinary';
+
+// Admin panelindeki form gönderme veya dosya seçme fonksiyonunun içinde:
+async function handleFileupload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  // Yükleniyor efekti verebilirsin
+  console.log("Dosya buluta yükleniyor...");
+
+  const cloudinaryUrl = await uploadToCloudinary(file);
+  
+  if (cloudinaryUrl) {
+    console.log("Kalıcı Link:", cloudinaryUrl);
+    // Artık bu linki veritabanına veya localStorage yerine kalıcı olarak kaydedebilirsin!
+    // Örnek: setCoverImage(cloudinaryUrl);
+  }
+}
+
 export default function AdminPanel() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
