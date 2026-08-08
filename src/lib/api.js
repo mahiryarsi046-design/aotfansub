@@ -34,24 +34,3 @@ export async function getTopAnime() {
     }
   ];
 }
-
-export async function getTopManga() {
-  return [
-    {
-      mal_id: 101,
-      title: "Attack on Titan (Manga)",
-      title_japanese: "進撃の巨人",
-      score: 8.6,
-      chapters: 139,
-      images: { jpg: { large_image_url: "https://cdn.myanimelist.net/images/manga/2/37846.jpg" } }
-    },
-    {
-      mal_id: 102,
-      title: "Attack on Titan: Before the Fall",
-      title_japanese: "進撃の巨人 Before the fall",
-      score: 7.3,
-      chapters: 50,
-      images: { jpg: { large_image_url: "https://cdn.myanimelist.net/images/manga/2/139351.jpg" } }
-    }
-  ];
-}
